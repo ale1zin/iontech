@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IonTech | Links</title>
+    <style>
+        /* Reset e Fundo */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0c1a23;
+            background-image: radial-gradient(rgba(0, 131, 237, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Cartão Principal */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            background: rgba(12, 26, 35, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 131, 237, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(0, 131, 237, 0.05);
+        }
+
+        .logo-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0083ED;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 0.90rem;
+            color: #8da4b5;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* ------------------------------------------- */
+        /* ÁREA DOS LINKS COM ALTURA FIXA E ROLAGEM    */
+        /* ------------------------------------------- */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: 380px; 
+            overflow-y: auto; 
+            
+            /* AJUSTE AQUI: O padding de 10px em cima e 15px embaixo 
+               impede que o botão e a sombra batam no teto e sejam cortados. */
+            padding: 10px 8px 15px 4px; 
+        }
+
+        /* AJUSTE AQUI: Centraliza os botões apenas no menu inicial */
+        #menu-principal {
+            justify-content: center;
+        }
+
+        /* AJUSTE AQUI: Mantém os produtos do topo pra baixo, garantindo a rolagem correta */
+        #menu-produtos {
+            justify-content: flex-start;
+        }
+
+        /* Customizando a barra de rolagem */
+        .links-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .links-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .links-container::-webkit-scrollbar-thumb {
+            background: rgba(0, 131, 237, 0.5);
+            border-radius: 10px;
+        }
+        .links-container::-webkit-scrollbar-thumb:hover {
+            background: #0083ED;
+        }
+
+        /* Estilo dos Botões Principais */
+        .link-btn {
+            display: block;
+            background-color: #0083ED; 
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 131, 237, 0.2);
+            border: 1px solid transparent;
+            cursor: pointer;
+            flex-shrink: 0; 
+        }
+
+        .link-btn:hover {
+            background-color: #006bbd; 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 15px rgba(0, 131, 237, 0.4);
+        }
+
+        /* Botão de Voltar */
+        .btn-voltar {
+            background-color: transparent;
+            border: 1px solid #8da4b5;
+            color: #8da4b5;
+            box-shadow: none;
+        }
+
+        .btn-voltar:hover {
+            background-color: rgba(141, 164, 181, 0.1);
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+        
+        /* Estilos dos Produtos */
+        .produto-item {
+            display: flex;
+            align-items: center;
+            background-color: #0c1a23; 
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 131, 237, 0.3);
+            transition: all 0.3s ease;
+            flex-shrink: 0; 
+        }
+
+        .produto-item:hover {
+            background-color: rgba(0, 131, 237, 0.1);
+            border-color: #0083ED;
+            transform: translateY(-2px);
+        }
+
+        .produto-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 15px;
+            background-color: #fff;
+        }
+
+        .produto-info {
+            text-align: left;
+        }
+
+        .produto-titulo {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .produto-loja {
+            color: #8da4b5;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Substitua pelo caminho da sua logo -->
+        <img src="logo.jpg" alt="Logo IonTech" class="logo-img">
+        
+        <h1>IonTech</h1>
+        <p>ELETRÔNICA ESPECIALIZADA</p>
+
+        <!-- MENU PRINCIPAL -->
+        <div id="menu-principal" class="links-container">
+            <a href="https://wa.me/53981362695" class="link-btn" target="_blank">📱 Atendimento Online</a>
+            <a href="https://www.youtube.com/@iontech_pel" class="link-btn" target="_blank">📺 Vídeos no YouTube</a>
+            <a href="https://www.instagram.com/iontech.pel/" class="link-btn" target="_blank">📸 Perfil do Instagram</a>
+            
+            <button onclick="abrirProdutos()" class="link-btn" style="width: 100%;">🛒 Ferramentas e Insumos</button>
+            
+            <a href="#" class="link-btn" target="_blank">⭐ Avalie no Google</a>
+        </div>
+
+        <!-- SUBMENU DE PRODUTOS -->
+        <div id="menu-produtos" class="links-container" style="display: none;">
+            
+            <button onclick="voltarPrincipal()" class="link-btn btn-voltar" style="width: 100%;">⬅ Voltar</button>
+
+            <a href="https://meli.la/1T2qpty" class="produto-item" target="_blank">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_663657-MLA113620492436_072026-F.webp" alt="Produto 1" class="produto-img">
+                <div class="produto-info">
+                    <span class="produto-titulo">Mini Soprador Turbo (Bateria)</span>
+                    <span class="produto-loja">Mercado Livre</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT (JavaScript) -->
+    <script>
+        function abrirProdutos() {
+            document.getElementById('menu-principal').style.display = 'none';
+            document.getElementById('menu-produtos').style.display = 'flex';
+        }
+
+        function voltarPrincipal() {
+            document.getElementById('menu-produtos').style.display = 'none';
+            document.getElementById('menu-principal').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
