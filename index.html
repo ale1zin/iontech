@@ -235,6 +235,27 @@
             document.getElementById('menu-produtos').style.display = 'none';
             document.getElementById('menu-principal').style.display = 'flex';
         }
+
+    // NOVO CÓDIGO: Tentar forçar a saída do Instagram
+        window.onload = function() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Verifica se o site foi aberto por dentro do Instagram
+            if (ua.indexOf('Instagram') > -1) {
+                
+                // Se for um celular Android, joga pro Google Chrome
+                if (/android/i.test(ua)) {
+                    // Pega a URL atual do seu site sem o "https://"
+                    var urlAtual = window.location.href.replace(/^https?:\/\//, '');
+                    // Dispara o comando para o sistema Android
+                    window.location.href = "intent://" + urlAtual + "#Intent;scheme=https;package=com.android.chrome;end;";
+                } 
+                // Se for iPhone/iOS, exibe um alerta pop-up
+                else {
+                    alert("Para acessar os produtos corretamente, clique nos 3 pontinhos (⋮) no topo da tela e selecione 'Abrir no navegador padrão'.");
+                }
+            }
+        };
     </script>
 
 </body>
